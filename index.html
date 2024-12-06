@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="VORZE機器のWeb上で使えるコントローラーです。">
+        <title>vV Controller</title>
+	    <link href="./icon.png" rel="icon" type="image/png">
+	    <link href="./style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="controller">
+            <h1>vV Controller</h1>
+            <input value="使い方" id="usage" type="button">
+            <input value="Connect" id="connect" type="button">
+
+            <div id="left-div" class="hidden">
+                <div id="left-label">Leftside</div>
+                <div id="left-power-div">0</div>
+                <input value="=+7" id="left-power-positive" type="button">
+                <input value="+1" id="left-power-plus" type="button">
+                <input value="=0" id="left-power" type="button">
+                <input value="-1" id="left-power-minus" type="button">
+                <input value="=-7" id="left-power-negative" type="button">
+                <div id="left-power-label">Pow</div>
+                <input value="Play" id="left-play" class="stop" type="button">
+            </div>
+            
+            <div id="down-div" class="hidden">
+                <div id="down-label">Downside</div>
+                <div id="down-minus-power-wrap">
+                    <div id="down-minus-power-div">-0</div>
+                    <input value="=-0" id="down-minus-power-positive" type="button">
+                    <input value="+1" id="down-minus-power-plus" type="button">
+                    <input value="=-4" id="down-minus-power" type="button">
+                    <input value="-1" id="down-minus-power-minus" type="button">
+                    <input value="=-8" id="down-minus-power-negative" type="button">
+                    <div id="down-minus-power-label">Pull</div>
+                </div>
+                <div id="down-amplitude-wrap">
+                    <div id="down-amplitude-div">4</div>
+                    <input value="=8" id="down-amplitude-positive" type="button">
+                    <input value="+1" id="down-amplitude-plus" type="button">
+                    <input value="=4" id="down-amplitude" type="button">
+                    <input value="-1" id="down-amplitude-minus" type="button">
+                    <input value="=1" id="down-amplitude-negative" type="button">
+                    <div id="down-amplitude-label">Amp</div>
+                </div>
+                <div id="down-plus-power-wrap">
+                    <div id="down-plus-power-div">+0</div>
+                    <input value="=+8" id="down-plus-power-positive" type="button">
+                    <input value="+1" id="down-plus-power-plus" type="button">
+                    <input value="=+4" id="down-plus-power" type="button">
+                    <input value="-1" id="down-plus-power-minus" type="button">
+                    <input value="=+0" id="down-plus-power-negative" type="button">
+                    <div id="down-plus-power-label">Push</div>
+                </div>
+                <input value="Play" id="down-play" class="stop" type="button">
+            </div>
+
+            <div id="right-div" class="hidden">
+                <div id="right-label">Rightside</div>
+                <div id="right-power-div">0</div>
+                <input value="=+7" id="right-power-positive" type="button">
+                <input value="+1" id="right-power-plus" type="button">
+                <input value="=0" id="right-power" type="button">
+                <input value="-1" id="right-power-minus" type="button">
+                <input value="=-7" id="right-power-negative" type="button">
+                <div id="right-power-label">Pow</div>
+                <input value="Play" id="right-play" class="stop" type="button">
+            </div>
+            
+            <div id="usage-div" class="hidden">
+                <p>
+                    これは
+                    <span class="vv-controller">VORZE機器専用のコントローラー</span>
+                    です。現在
+                    <span class="ufo-tw">UFO-TW</span> ,
+                    <span class="piston-sa">A10-PISTON-SA</span>
+                    に対応しています。
+                </p>
+                <!--p>
+                    ブラウザは、
+                    Windows , Android の場合は
+                    <span class="connect-topic">Chrome</span> ,
+                    <span class="connect-topic">Edge</span> が対応しています。
+                    iOS の場合は <span class="connect-topic">Bluefy</span>
+                    などをご利用ください。
+                </p-->
+                <p>
+                    使い方に関しては、まず
+                    <span class="connect">Connect</span>
+                    ボタンを押し、機器の電源を入れて接続してください。
+                    <span class="ufo-tw-topic">UFO-TW</span> は、
+                    先に電源を入れたものが左側になるようにします。
+                </p>
+                <p>
+                    <span class="ufo-tw">UFO-TW</span> の制御は、
+                    <span class="ufo-tw-topic">Leftside</span> または
+                    <span class="ufo-tw-topic">Rightside</span>
+                    の2列のボタンで行います。
+                    <span class="ufo-tw-control">Play</span> を押すと回転を開始します。
+                    <span class="ufo-tw-control">+1</span> で時計回りに加速、
+                    <span class="ufo-tw-control">-1</span> で反時計回りに加速し、
+                    <span class="ufo-tw-control">=+7</span> で時計回りの最大値、
+                    <span class="ufo-tw-control">=-7</span> で反時計回りの最大値を入力できます。
+                    <span class="ufo-tw-control">=0</span> を押すと中央値の0を入力するため停止します。
+                </p>
+                <p>
+                    <span class="piston-sa">A10-PISTON-SA</span> の制御は、
+                    <span class="piston-sa-topic">Downside</span> の3列のボタンで行います。
+                    操作方法は <span class="ufo-tw-topic">UFO-TW</span> の場合と同様ですが、
+                    <span class="piston-sa-topic">Pull</span> の列は引く速さ、
+                    <span class="piston-sa-topic">Amp</span> の列は往復する距離、
+                    <span class="piston-sa-topic">Push</span> の列は押す速さを表します。
+                </p>
+                <p>
+                    <span class="connect">もどる</span>を押して
+                    <span class="vv-controller">vV Controller</span>
+                    をご利用ください。
+                </p>
+                <div id="link-div">
+                    <div id="link-label">Link</div>
+                    <ul id="link">
+                        <li id="github-li"><a href="https://github.com/vulpine-vixen/vv-controller">GitHub</a></li>
+                        <li id="vulpine-vixen-li"><a href="https://vulpine-vixen.com/">vulpineVixen</a></li>
+                        <li id="patreon-li">Patreon</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="./vorze.js" defer></script>
+        <script src="./main.js" defer></script>
+    </body>
+</html>

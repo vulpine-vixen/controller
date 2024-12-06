@@ -1,0 +1,561 @@
+/* 1/2 より横長の場合 */
+@media (min-aspect-ratio: 1/2)
+{
+    #controller
+    {
+        font-size: calc(100svh / 50);
+        width: 50svh;
+        height: 100svh;
+        left: calc(50svw - 25svh);
+        top: 0;
+        position: fixed;
+    }
+}
+
+/* 1/2 より縦長の場合 */
+@media (max-aspect-ratio: 1/2)
+{
+    #controller
+    {
+        font-size: calc(200svw / 50);
+        width: 100svw;
+        height: 200svw;
+        left: 0;
+        top: calc(50svh - 100svw);
+        position: fixed;
+    }
+}
+
+/* コントローラー全体 */
+#controller
+{
+    margin: auto;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    display: grid;
+}
+
+#controller input[type="button"],
+#controller div
+{
+    text-align: center;
+    line-height: 5em;
+}
+
+/* タイトル */
+#controller #icon
+{
+    width: 100%;
+    height: 100%;
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+}
+
+/* タイトル */
+#controller h1
+{
+    color: #C9F;
+    text-align: center;
+    grid-column: 2 / 5;
+    grid-row: 1 / 2;
+    line-height: 5em;
+}
+
+/* 接続ボタン */
+#connect
+{
+    background-color: #306;
+    color: #C9F;
+    border-color: #C9F;
+    grid-column: 5 / 6;
+    grid-row: 1 / 2;
+}
+
+/* 使い方ボタン */
+#usage
+{
+    background-color: #306;
+    color: #C9F;
+    border-color: #C9F;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+/* 左下右用の真ん中のボタンの色 */
+#left-power,
+#right-power
+{
+    background-color: #C6C;
+    color: #F9F;
+    border-color: #F9F;
+}
+#down-minus-power,
+#down-amplitude,
+#down-plus-power
+{
+    background-color: #66C;
+    color: #99F;
+    border-color: #99F;
+}
+
+/* 左下右用の-+ボタンの色 */
+#left-power-plus,
+#right-power-plus,
+#left-power-minus,
+#right-power-minus
+{
+    background-color: #939;
+    color: #F9F;
+    border-color: #F9F;
+}
+#down-minus-power-plus,
+#down-minus-power-minus,
+#down-amplitude-plus,
+#down-amplitude-minus,
+#down-plus-power-plus,
+#down-plus-power-minus
+{
+    background-color: #339;
+    color: #99F;
+    border-color: #99F;
+}
+
+/* 左下右用の-M, +Mボタンの色 */
+#left-power-positive,
+#right-power-positive,
+#left-power-negative,
+#right-power-negative
+{
+    background-color: #606;
+    color: #F9F;
+    border-color: #F9F;
+}
+#down-minus-power-positive,
+#down-minus-power-negative,
+#down-amplitude-positive,
+#down-amplitude-negative,
+#down-plus-power-positive,
+#down-plus-power-negative
+{
+    background-color: #006;
+    color: #99F;
+    border-color: #99F;
+}
+
+/* 再生中の再生停止ボタンの色 */
+#left-play.stop,
+#right-play.stop
+{
+    background-color: #F9F;
+    color: #606;
+    border-color: #606;
+}
+#left-play.play,
+#right-play.play
+{
+    background-color: #C0C;
+    color: #606;
+    border-color: #606;
+}
+#down-play.stop
+{
+    background-color: #99F;
+    color: #006;
+    border-color: #006;
+}
+#down-play.play
+{
+    background-color: #006;
+    color: #99F;
+    border-color: #99F;
+}
+#left-power-label,
+#right-power-label
+{
+    color: #F9F;
+}
+#down-minus-power-label,
+#down-amplitude-label,
+#down-plus-power-label
+{
+    color: #99F;
+}
+
+/* 左、下、右用の囲うもの */
+#left-div
+{
+    background-color: #303;
+    border-radius: 2.5em;
+    border-style: none;
+    grid-column: 1 / 2;
+    grid-row: 2 / 11;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    display: grid;
+}
+#down-div
+{
+    background-color: #003;
+    border-radius: 2.5em;
+    border-style: none;
+    grid-column: 2 / 5;
+    grid-row: 2 / 11;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    display: grid;
+}
+#down-minus-power-wrap
+{
+    grid-column: 1 / 2;
+    grid-row: 1 / 10;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    display: grid;
+}
+#down-amplitude-wrap
+{
+    grid-column: 2 / 3;
+    grid-row: 1 / 10;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    display: grid;
+}
+#down-plus-power-wrap
+{
+    grid-column: 3 / 4;
+    grid-row: 1 / 10;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    display: grid;
+}
+#right-div
+{
+    background-color: #303;
+    border-radius: 2.5em;
+    border-style: none;
+    grid-column: 5 / 6;
+    grid-row: 2 / 11;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    display: grid;
+}
+
+/* ラベルとボタン */
+#controller #left-power-div,
+#controller #right-power-div
+{
+    color: #F9F;
+    font-size: 2em;
+    line-height: 2.5em;
+}
+#controller #down-minus-power-div,
+#controller #down-amplitude-div,
+#controller #down-plus-power-div
+{
+    color: #99F;
+    font-size: 2em;
+    line-height: 2.5em;
+}
+#left-power-div,
+#down-minus-power-div,
+#down-amplitude-div,
+#down-plus-power-div,
+#right-power-div
+{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+#left-power-label,
+#down-minus-power-label,
+#down-amplitude-label,
+#down-plus-power-label,
+#right-power-label
+{
+    grid-column: 1 / 2;
+    grid-row: 8 / 9;
+}
+
+/* 入力ボタン */
+#left-power-positive,
+#down-minus-power-positive,
+#down-amplitude-positive,
+#down-plus-power-positive,
+#right-power-positive
+{
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+#left-power-plus,
+#down-minus-power-plus,
+#down-amplitude-plus,
+#down-plus-power-plus,
+#right-power-plus
+{
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+}
+#left-power,
+#down-minus-power,
+#down-amplitude,
+#down-plus-power,
+#right-power
+{
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+}
+#left-power-minus,
+#down-minus-power-minus,
+#down-amplitude-minus,
+#down-plus-power-minus,
+#right-power-minus
+{
+    grid-column: 1 / 2;
+    grid-row: 6 / 7;
+}
+#left-power-negative,
+#down-minus-power-negative,
+#down-amplitude-negative,
+#down-plus-power-negative,
+#right-power-negative
+{
+    grid-column: 1 / 2;
+    grid-row: 7 / 8;
+}
+#left-label,
+#right-label
+{
+    color: #F9F;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+#down-label
+{
+    color: #99F;
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+
+/* 再生ボタン */
+#left-play,
+#right-play
+{
+    grid-column: 1 / 2;
+    grid-row: 9 / 10;
+}
+#down-play
+{
+    grid-column: 1 / 4;
+    grid-row: 9 / 10;
+}
+
+
+/* ボタン */
+#controller input[type="button"]
+{
+    padding: 0.25em;
+    line-height: 4.5em;
+    border-radius: 2.5em;
+    border-style: none;
+}
+/* 押下時のボタン */
+#controller input[type="button"]:active
+{
+    padding: 0;
+    border-width: 0.25em;
+    border-style: solid;
+}
+
+
+/* リンク欄 */
+#usage-div #link-div
+{
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+}
+#usage-div #link-label
+{
+    background-color: #306;
+    padding: 0 0.5em;
+    margin: 0.25em 0.25em 0 0.25em;
+    border-radius: 0.25em;
+    line-height: 2em;
+    text-align: left;
+}
+#usage-div #link
+{
+    color: #96C;
+    line-height: 2em;
+    margin: 0 0.25em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    display: grid;
+}
+#github-li
+{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    text-align: left;
+}
+#vulpine-vixen-li
+{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    text-align: center;
+}
+#patreon-li
+{
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    text-align: right;
+}
+
+/* ブロック */
+#left-div,
+#down-div,
+#down-amplitude-div,
+#down-power-div,
+#down-term-div,
+#right-div,
+#link,
+#link li
+{
+    padding: 0;
+}
+
+/* リンク */
+#link a
+{
+    color: #C9F;
+    border-bottom: solid 0.125em #96C;
+    text-decoration: none;
+    line-height: 1em;
+}
+#link a:active
+{
+    color: #96C;
+    border-color: #639;
+}
+
+/* リスト */
+ul
+{
+    list-style-type: none;
+}
+
+/* ブロック */
+div
+{
+    border-style: none;
+}
+
+/* 使い方のブロック */
+#controller #usage-div
+{
+    color: #C9F;
+    padding: 0 0.25em;
+    grid-column: 1 / 6;
+    grid-row: 2 / 11;
+}
+#usage-div p
+{
+    line-height: 2em;
+    text-align: left;
+}
+#usage-div dd
+{
+    margin: 0 1em 0 0;
+}
+#usage-div .connect
+{
+    background-color: #306;
+    color: #C9F;
+    padding: 0 0.5em;
+    border-radius: 1em;
+}
+#usage-div .usage
+{
+    background-color: #306;
+    color: #C9F;
+    padding: 0 0.5em;
+    border-radius: 1em;
+}
+#usage-div .vv-controller
+{
+    background-color: #96C;
+    color: #306;
+}
+#usage-div .connect-topic
+{
+    background-color: #639;
+    color: #C9F;
+}
+#usage-div .ufo-tw
+{
+    background-color: #F9F;
+    color: #606;
+}
+#usage-div .ufo-tw-topic
+{
+    background-color: #939;
+    color: #F9F;
+}
+#usage-div .ufo-tw-control
+{
+    background-color: #606;
+    color: #F9F;
+    padding: 0 0.5em;
+    border-radius: 1em;
+}
+#usage-div .piston-sa
+{
+    background-color: #99F;
+    color: #006;
+}
+#usage-div .piston-sa-topic
+{
+    background-color: #339;
+    color: #99F;
+}
+#usage-div span
+{
+    line-height: 1em;
+    padding: 0 0.25em;
+    border-radius: 0.25em;
+}
+
+/* 隠れたもの */
+.hidden
+{
+    display: none !important;
+}
+
+/* 全体 */
+body
+{
+    background-color: #000;
+    color: #96C;
+    font-size: 12pt;
+    font-family: sans-serif;
+}
+
+body,
+html
+{
+    width: 100svw;
+    height: 100svh;
+}
+
+/* 全ての要素 */
+*
+{
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 2em;
+    box-sizing: border-box;
+    overflow: hidden;
+    touch-action: manipulation;
+}
