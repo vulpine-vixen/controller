@@ -65,6 +65,8 @@ const disconnected = (side) =>
 const connectButton = document.querySelector('#connect')
 const connectFun = async(e) =>
 {
+    connectButton.value = '...'
+
     // 接続
     const n = await vorze.connect(disconnected)
 
@@ -72,6 +74,7 @@ const connectFun = async(e) =>
     if(!n)
     {
         console.error('VORZE機器と正しく接続できませんでした。')
+        connectButton.value = 'Connect'
         return
     }
 
@@ -80,8 +83,11 @@ const connectFun = async(e) =>
     {
         vorze.set(vorze.LEFTSIDE, { power: leftPower / 7 })
         vorze.set(vorze.RIGHTSIDE, { power: rightPower / 7 })
-        leftDiv.classList.remove('hidden')
-        rightDiv.classList.remove('hidden')
+        if(!usageView)
+        {
+            leftDiv.classList.remove('hidden')
+            rightDiv.classList.remove('hidden')
+        }
     }
     if(n === vorze.A10_PISTON_SA)
     {
@@ -90,8 +96,10 @@ const connectFun = async(e) =>
             amplitude: downAmp / 8,
             pushPower: (Math.pow(2, downPlusPower) - 1) / 255,
         })
-        downDiv.classList.remove('hidden')
+        if(!usageView)
+            downDiv.classList.remove('hidden')
     }
+    connectButton.value = 'Connect'
 }
 connectButton.addEventListener('click', connectFun)
 
@@ -299,11 +307,21 @@ rightPlayButton.addEventListener('click', rightPlayFun)
 const usageButton = document.querySelector('#usage')
 const usageFun = (e) => {
     usageView = !usageView
-    if(vorze.leftsideConnected) leftDiv.classList.toggle('hidden')
-    if(vorze.downsideConnected) downDiv.classList.toggle('hidden')
-    if(vorze.rightsideConnected) rightDiv.classList.toggle('hidden')
-    usageDiv.classList.toggle('hidden')
-    if(usageView) usageButton.value = 'もどる'
-    else usageButton.value = '使い方'
+    if(usageView)
+    {
+        if(vorze.leftsideConnected) leftDiv.classList.add('hidden')
+        if(vorze.downsideConnected) downDiv.classList.add('hidden')
+        if(vorze.rightsideConnected) rightDiv.classList.add('hidden')
+        usageDiv.classList.remove('hidden')
+        usageButton.value = 'もどる'
+    }
+    else
+    {
+        if(vorze.leftsideConnected) leftDiv.classList.remove('hidden')
+        if(vorze.downsideConnected) downDiv.classList.remove('hidden')
+        if(vorze.rightsideConnected) rightDiv.classList.remove('hidden')
+        usageDiv.classList.add('hidden')
+        usageButton.value = '使い方'
+    }
 }
 usageButton.addEventListener('click', usageFun)
